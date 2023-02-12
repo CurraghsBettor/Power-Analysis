@@ -111,7 +111,7 @@ library(psych)
 ms <- c(n, n)
 hm <- harmonic.mean(ms)
 
-## compute the t-statistic/lambda
+## compute the t-statistics/lambdas
 # between-subjects design
 lambda_dp <- dp* sqrt(hm/2)
 # within-subjects design, when Rho = 0.5
@@ -136,7 +136,7 @@ etawH <- eta(lambda_dDH, dfD); etawH
 etawZ <- eta(lambda_dDZ, dfD); etawZ
 
 # function that allows to convert a partial eta squared for a within-subjects variable as in SPSS to a partial eta squared as in GPower (i.e.,that is comparable to a partial eta squared computed for a between-subjects variable) 
-
+# it relies on formulas provided in Lakens (2013)
 Spss_to_GP <-function(eta, N, k, m, Rho) { 
   fsq <- eta/(1-eta)
   Gpower <-fsq*((N-k)/N)*((m-1)/m)*(1-Rho)
