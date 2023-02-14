@@ -21,7 +21,7 @@ gp1 <- mvrnorm(n, mu = mu1, Sigma = cov_matrix)
 gp2 <- mvrnorm(n, mu = mu2, Sigma = cov_matrix)
 gp3 <- mvrnorm(n, mu = mu3, Sigma = cov_matrix)
 
-# displays the correlation between repeated measures in each group 
+# display the correlation between repeated measures in each group 
 cor1 <- cor(x = gp1[,1], y = gp1[,2]); print(cor1)
 cor2 <- cor(x = gp2[,1], y = gp2[,2]); print(cor2)
 cor3 <- cor(x = gp3[,1], y = gp3[,2]); print(cor3)
@@ -137,6 +137,10 @@ etawZ <- eta(lambda_dDZ, dfD); etawZ
 
 # function that allows to convert a partial eta squared for a within-subjects variable as in SPSS to a partial eta squared as in GPower (i.e.,that is comparable to a partial eta squared computed for a between-subjects variable) 
 # it relies on formulas provided in Lakens (2013)
+# N = total sample size
+# m = number of measurements/repetitions
+# k = number of group
+# Rho = correlation between repeated measures (if more than 2 repeated measures, fill in the mean of correlations, to obtain this mean use the fisher z transformation)
 Spss_to_GP <-function(eta, N, k, m, Rho) { 
   fsq <- eta/(1-eta)
   Gpower <-fsq*((N-k)/N)*((m-1)/m)*(1-Rho)
