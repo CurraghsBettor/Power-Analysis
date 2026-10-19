@@ -144,7 +144,7 @@ etawZ <- eta(lambda_dDZ, dfD); etawZ
 Spss_to_GP <-function(eta, N, k, m, Rho) { 
   fsq <- eta/(1-eta)
   Gpower <-fsq*((N-k)/N)*((m-1)/m)*(1-Rho)
-  etaGP <-GPower/sum(1, 1, GPower)
-  return(test)
+  etaGP <-GPower/sum(1, GPower)
+  return(etaGP)
 }
 
